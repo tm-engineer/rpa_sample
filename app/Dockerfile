@@ -5,8 +5,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 ARG APP_HOME="/opt/app/app"
 
-RUN apt-get update -y \
-  && apt-get -y install vim \
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+  vim \
+  less \
   && mkdir -p ${APP_HOME} \
   && pip install --upgrade pip
 
